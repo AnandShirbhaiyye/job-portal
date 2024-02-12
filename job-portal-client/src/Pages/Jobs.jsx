@@ -1,8 +1,10 @@
 import React from 'react'
 
-const Jobs = () => {
+const Jobs = ({result}) => {
   return (
-    <div>Jobs</div>
+    <>
+        <div>{result}</div>
+    </>
   )
 }
 
