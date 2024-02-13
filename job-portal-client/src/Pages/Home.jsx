@@ -96,6 +96,9 @@ const Home = () => {
       console.log(filteredJobs);
     }
 
+    // slice the data based on current page
+    const {startIndex, endIndex} = calculatePageRange();
+    filteredJobs = filteredJobs.slice(startIndex, endIndex)
     return filteredJobs.map((data, i) => <Card key={i} data={data} />);
   };
 
@@ -112,7 +115,7 @@ const Home = () => {
             <Sidebar handleChange={handleChange} handleClick={handleClick} />
           </div>
 
-          {/*Job Card */}
+          {/* job card */}
           <div className="col-span-2 bg-white p-4 rounded-sm">
             {
               isLoading ? (<p className="font-medium">Loading...</p>) : result.length > 0 ? (<Jobs result={result} />) : <>
@@ -121,6 +124,17 @@ const Home = () => {
               </>
             }
             
+             {/*pagination here*/}
+
+             {
+              result.length > 0 ? (
+                <div className="flex justify-center mt-4 space-x-8">
+                  <button onClick={prevPage} disabled={currentPage === 1}>Previous</button>
+                  <span className="mx-2">Page {currentPage} of {Math.ceil(filteredItems.length / itemsPerPage)}</span>
+                  <button onClick={nextPage} disabled={currentPage === Math.ceil(filteredItems.length/itemsPerPage)} className="hover:underline">Next</button>
+                </div>
+              ) : ""
+             }
           </div>
 
           {/* Right Side */}
