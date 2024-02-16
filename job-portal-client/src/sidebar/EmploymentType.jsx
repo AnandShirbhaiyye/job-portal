@@ -1,11 +1,11 @@
 import React from "react";
 import InputField from "../components/InputField";
 
-const WorkExperience = ({ handleChange }) => {
+const EmploymentType = ({ handleChange }) => {
   return (
     <>
       <div>
-        <h4 className="text-lg font-medium mb-2">Work Experience</h4>
+        <h4 className="text-lg font-medium mb-2">Type of employment</h4>
         <div>
           <label className="sidebar-label-container">
             <input
@@ -17,18 +17,25 @@ const WorkExperience = ({ handleChange }) => {
             />
             <span className="checkmark"></span>Any experience
           </label>
-
+          
           <InputField
             handleChange={handleChange}
-            value="Internship"
-            title="Internship"
+            value="full-time"
+            title="Full-time"
             name="test"
           />
 
           <InputField
             handleChange={handleChange}
-            value="work remotely"
-            title="Work remotely"
+            value="temporary"
+            title="Temporary"
+            name="test"
+          />
+
+          <InputField
+            handleChange={handleChange}
+            value="part-time"
+            title="Part-time"
             name="test"
           />
         </div>
@@ -37,4 +44,4 @@ const WorkExperience = ({ handleChange }) => {
   );
 };
 
-export default WorkExperience;
+export default EmploymentType;
